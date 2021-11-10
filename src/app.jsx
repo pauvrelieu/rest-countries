@@ -1,20 +1,33 @@
-import { Logo } from './logo'
+import { useEffect, useState } from 'preact/hooks'
+import { CountryItem } from './components/CountryItem'
 
-export function App(props) {
+export function App() {
+  const [countries, setCountries] = useState([])
+  const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    let endpoint = 'all'
+
+    if (search) {
+      endpoint = `name/${search}`
+    }
+
+    fetch(`https://restcountries.com/v2/${endpoint}`)
+      .then((response) => response.json())
+      .then(setCountries)
+  }, [search])
+
+  const handleInput = function (e) {
+    setSearch(e.target.value)
+  }
+
   return (
     <>
-      <Logo />
-      <p>Hello Vite + Preact!</p>
-      <p>
-        <a
-          class="link"
-          href="https://preactjs.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Preact
-        </a>
-      </p>
+      <input type="text" onInput={handleInput} />
+
+      {countries.map((country) => (
+        <CountryItem country={country} />
+      ))}
     </>
   )
 }
