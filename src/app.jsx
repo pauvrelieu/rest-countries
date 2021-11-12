@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'preact/hooks'
-import { CountryItem } from './components/CountryItem'
+import { Link } from 'react-router-dom'
+import slugify from 'slugify'
+import { CountryCard } from './components/CountryCard'
 
 export function App() {
   const [countries, setCountries] = useState([])
@@ -51,7 +53,14 @@ export function App() {
       </select>
 
       {countries.map((country) => (
-        <CountryItem key={country.name} country={country} />
+        <Link
+          to={`${slugify(country.name, {
+            lower: true,
+          })}?name=${country.name}`}
+          key={country.name}
+        >
+          <CountryCard key={country.name} country={country} />
+        </Link>
       ))}
     </>
   )

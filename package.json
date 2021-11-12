@@ -9,7 +9,8 @@
   "dependencies": {
     "history": "5",
     "preact": "^10.5.13",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "slugify": "^1.6.2"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",

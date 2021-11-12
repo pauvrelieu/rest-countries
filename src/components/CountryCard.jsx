@@ -1,7 +1,7 @@
-export function CountryItem({ country }) {
+export function CountryCard({ country }) {
   return (
     <article>
-      <img src={country.flags.svg} alt={`The ${country.name} flags`} />
+      <img src={country.flags.svg} alt={`The ${country.name} country flags`} />
       <h2>{country.name}</h2>
       <ul>
         <li>
