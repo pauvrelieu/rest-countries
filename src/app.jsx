@@ -56,6 +56,7 @@ export function App() {
         <Link
           to={`${slugify(country.name, {
             lower: true,
+            strict: true,
           })}?name=${country.name}`}
           key={country.name}
         >
