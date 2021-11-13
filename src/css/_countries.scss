@@ -1,0 +1,18 @@
+.countries {
+    padding: 0 1em;
+}
+
+.countries-cards {
+    padding: 0 1em;
+    display: grid;
+    align-items: flex-end;
+    grid-column-gap: 50px;
+    grid-row-gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+@media only screen and (min-width: 1000px) {
+    .countries-cards {
+        grid-column-gap: 80px;
+    }
+}

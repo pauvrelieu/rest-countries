@@ -1,3 +1,13 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --white-gray: hsl(0, 0%, 98%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --dark-blue: hsl(200, 15%, 8%);
+  --shadow: 0 0 6px 3px hsl(0deg 0% 95%);
+  --container-width: 1440px;
+  --radius: 5px;
+}
+
 *,
 *::before,
 *::after {
@@ -14,4 +24,27 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   font-weight: 300;
+
+  background: var(--white-gray);
+  color: var(--dark-blue);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: inline-block;
+  object-fit: cover;
+}
+
+.container {
+  width: 100%;
+  padding-left: calc(50% - var(--container-width) / 2);
+  padding-right: calc(50% - var(--container-width) / 2);
 }

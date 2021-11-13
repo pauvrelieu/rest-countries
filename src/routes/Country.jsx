@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
+import { useNavigate } from 'react-router-dom'
 import slugify from 'slugify'
 
 export function Country() {
   const [country, setCountry] = useState({})
   const [bordersCountries, setBordersCountries] = useState([])
+  let navigate = useNavigate()
 
   useEffect(() => {
     let params = new URLSearchParams(document.location.search.substring(1))
@@ -32,7 +34,7 @@ export function Country() {
 
   return (
     <>
-      <button onClick={() => location.assign('/')}>Back</button>
+      <button onClick={() => navigate(-1)}>Back</button>
 
       <article>
         <img

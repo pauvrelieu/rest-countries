@@ -1,0 +1,36 @@
+.country-card {
+    padding: 0 20px 30px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+
+    background: var(--white);
+}
+
+.country-card > * {
+    margin-bottom: 1em;
+}
+
+.country-card img {
+    min-height: 200px;
+    width: calc(100% + 40px);
+    margin-left: calc(-20px);
+    margin-right: calc(-20px);
+}
+
+.country-card h2 {
+    font-size: 1.25em;
+    font-weight: 800;
+}
+
+.country-card ul strong {
+    font-size: .9em;
+}
+
+.country-card ul > *:not(:last-child) {
+    margin-bottom: .25em;
+}
+
+.country-card ul strong {
+    font-weight: 600;
+}

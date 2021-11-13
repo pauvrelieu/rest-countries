@@ -1,11 +1,12 @@
 export function CountryCard({ country }) {
+  const population = new Intl.NumberFormat().format(country.population)
   return (
-    <article>
-      <img src={country.flags.svg} alt={`The ${country.name} country flags`} />
+    <article class="country-card">
+      <img src={country.flag} alt={`The ${country.name} country flags`} />
       <h2>{country.name}</h2>
       <ul>
         <li>
-          <strong>Population</strong>: {country.population}
+          <strong>Population</strong>: {population}
         </li>
         <li>
           <strong>Region</strong>: {country.region}
