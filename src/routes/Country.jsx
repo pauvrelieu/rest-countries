@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
-import { Link } from 'react-router-dom'
 import slugify from 'slugify'
 
 export function Country() {
@@ -33,7 +32,7 @@ export function Country() {
 
   return (
     <>
-      <Link to="/">Back</Link>
+      <button onClick={() => location.assign('/')}>Back</button>
 
       <article>
         <img
