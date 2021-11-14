@@ -44,6 +44,24 @@ img {
   object-fit: cover;
 }
 
+input[type='text'] {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.search-field input,
+.search-field button {
+  border: none;
+
+  background: inherit;
+}
+
 .container,
 .topbar,
 .countries {

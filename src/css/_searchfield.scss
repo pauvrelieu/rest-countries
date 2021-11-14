@@ -1,0 +1,20 @@
+.search-field {
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  background: var(--white);
+}
+
+.search-field input {
+  flex-grow: 2;
+}
+
+.search-field svg {
+  height: 20px;
+  width: 70px;
+}

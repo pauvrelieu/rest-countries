@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks'
 import { Link } from 'react-router-dom'
 import slugify from 'slugify'
 import { CountryCard } from '../components/CountryCard'
+import { SearchField } from '../components/SearchField'
 
 export function Countries() {
   const [countries, setCountries] = useState([])
@@ -31,8 +32,8 @@ export function Countries() {
       .then(setRegions)
   }, [])
 
-  const handleSearch = function (e) {
-    setSearch(e.target.value)
+  const handleSearch = function (value) {
+    setSearch(value)
   }
 
   const handleRegion = function (e) {
@@ -41,16 +42,18 @@ export function Countries() {
 
   return (
     <div class="countries">
-      <input type="text" onInput={handleSearch} />
+      <div className="filters">
+        <SearchField onSubmit={handleSearch} />
 
-      <select onChange={handleRegion}>
-        <option value="">Filter by Region</option>
-        {regions.map((region) => (
-          <option key={region.toLowerCase()} value={region.toLowerCase()}>
-            {region}
-          </option>
-        ))}
-      </select>
+        <select onChange={handleRegion}>
+          <option value="">Filter by Region</option>
+          {regions.map((region) => (
+            <option key={region.toLowerCase()} value={region.toLowerCase()}>
+              {region}
+            </option>
+          ))}
+        </select>
+      </div>
 
       <div className="countries-cards">
         {countries.map((country) => (
