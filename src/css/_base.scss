@@ -3,8 +3,9 @@
   --white-gray: hsl(0, 0%, 98%);
   --dark-gray: hsl(0, 0%, 52%);
   --dark-blue: hsl(200, 15%, 8%);
-  --shadow: 0 0 6px 3px hsl(0deg 0% 95%);
-  --container-width: 1440px;
+  --shadow: 0 0 6px 3px hsl(0, 0%, 93%);
+  --container-padding: 20px;
+  --container-width: calc(100vw - var(--container-padding) * 2);
   --radius: 5px;
 }
 
@@ -43,8 +44,16 @@ img {
   object-fit: cover;
 }
 
-.container {
+.container,
+.topbar,
+.countries {
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
+}
+
+@media only screen and (min-width: 1440px) {
+  :root {
+    --container-width: 1440px;
+  }
 }

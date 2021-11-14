@@ -40,32 +40,30 @@ export function Countries() {
   }
 
   return (
-    <div className="container">
-      <div class="countries">
-        <input type="text" onInput={handleSearch} />
+    <div class="countries">
+      <input type="text" onInput={handleSearch} />
 
-        <select onChange={handleRegion}>
-          <option value="">Filter by Region</option>
-          {regions.map((region) => (
-            <option key={region.toLowerCase()} value={region.toLowerCase()}>
-              {region}
-            </option>
-          ))}
-        </select>
+      <select onChange={handleRegion}>
+        <option value="">Filter by Region</option>
+        {regions.map((region) => (
+          <option key={region.toLowerCase()} value={region.toLowerCase()}>
+            {region}
+          </option>
+        ))}
+      </select>
 
-        <div className="countries-cards">
-          {countries.map((country) => (
-            <Link
-              to={`${slugify(country.name, {
-                lower: true,
-                strict: true,
-              })}?name=${country.name}`}
-              key={country.name}
-            >
-              <CountryCard key={country.name} country={country} />
-            </Link>
-          ))}
-        </div>
+      <div className="countries-cards">
+        {countries.map((country) => (
+          <Link
+            to={`${slugify(country.name, {
+              lower: true,
+              strict: true,
+            })}?name=${country.name}`}
+            key={country.name}
+          >
+            <CountryCard key={country.name} country={country} />
+          </Link>
+        ))}
       </div>
     </div>
   )
