@@ -1,0 +1,55 @@
+.select {
+  width: 250px;
+  position: relative;
+  
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+.select__title,
+.select__items {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--white);
+}
+
+.select__title {
+  height: 46px;
+  padding: 0 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  line-height: 46px;
+}
+
+.select__title svg {
+  height: 1em;
+  width: 1em;
+}
+
+.select__title.rotate svg {
+  transform: scaleY(-1);
+}
+
+.select__items {
+  padding: 1em 0;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+}
+
+.select__items li {
+  padding: .25em 1.5em;
+}
+
+.select__title,
+.select__items li {
+  cursor: pointer;
+}
+
+.select__items[aria-hidden] {
+  display: none;
+}

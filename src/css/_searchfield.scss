@@ -1,13 +1,15 @@
 .search-field {
   height: 46px;
-  width: 100%;
+  // min-width: 400px;
   display: flex;
   flex-direction: row-reverse;
   border: none;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  overflow: hidden;
 
   background: var(--white);
+  color: var(--dark-gray);
 }
 
 .search-field input {
@@ -17,4 +19,6 @@
 .search-field svg {
   height: 20px;
   width: 70px;
+
+  color: var(--dark-gray);
 }

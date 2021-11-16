@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import slugify from 'slugify'
 import { CountryCard } from '../components/CountryCard'
 import { SearchField } from '../components/SearchField'
+import { Select } from '../components/Select'
+
+const fakeLabel = 'Filter by region'
 
 export function Countries() {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
-  const [regions, setRegions] = useState([])
   const [region, setRegion] = useState('')
 
   useEffect(() => {
@@ -26,33 +28,26 @@ export function Countries() {
       .then(setCountries)
   }, [search, region])
 
-  useEffect(() => {
-    fetch('regions.json')
-      .then((response) => response.json())
-      .then(setRegions)
-  }, [])
-
   const handleSearch = function (value) {
     setSearch(value)
   }
 
-  const handleRegion = function (e) {
-    setRegion(e.target.value)
+  const handleRegion = function (value) {
+    value.toLowerCase()
+    if (value.includes(fakeLabel)) {
+      value = ''
+    }
+    setRegion(value)
   }
 
   return (
     <div class="countries">
       <div className="filters">
         <SearchField onSubmit={handleSearch} />
-
-        <select onChange={handleRegion}>
-          <option value="">Filter by Region</option>
-          {regions.map((region) => (
-            <option key={region.toLowerCase()} value={region.toLowerCase()}>
-              {region}
-            </option>
-          ))}
-        </select>
+        <Select
+          items={[fakeLabel, 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
+          onChange={handleRegion}
+        />
       </div>
 
       <div className="countries-cards">
