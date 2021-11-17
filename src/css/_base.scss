@@ -6,7 +6,7 @@
   --shadow: 0 0 6px 3px hsl(0, 0%, 93%);
   --container-padding: 20px;
   --container-width: calc(100vw - var(--container-padding) * 2);
-  --radius: 5px;
+  --radius: 3px;
 }
 
 *,
@@ -40,6 +40,7 @@ li {
 }
 
 img {
+  width: 100%;
   display: inline-block;
   object-fit: cover;
 }
@@ -52,7 +53,20 @@ input[type='text'] {
 }
 
 button {
+  border: none;
+  padding: 0.5em 1.75em;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  
+  font-size: .8em;
+  
+  background: var(--white);
+  
   cursor: pointer;
+}
+
+button.flat {
+  box-shadow: none;
 }
 
 .search-field input,
@@ -64,7 +78,8 @@ button {
 
 .container,
 .topbar,
-.countries {
+.countries,
+.country {
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);

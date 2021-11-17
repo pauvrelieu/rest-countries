@@ -19,7 +19,7 @@ export function SearchField({ onSubmit }) {
         name="search"
         placeholder="Search for a country"
       />
-      <button type="submit">
+      <button type="submit" class="flat">
         <SearchIcon />
       </button>
     </form>

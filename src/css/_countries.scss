@@ -1,4 +1,8 @@
-.countries > *:not(:last-child) {
+.countries {
+  padding-bottom: 1em;
+}
+
+.countries > * {
   margin-bottom: 2em;
 }
 
@@ -7,7 +11,7 @@
   place-content: center;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-column-gap: 50px;
-  grid-row-gap: 80px;
+  grid-row-gap: 50px;
 }
 
 .filters {
@@ -23,6 +27,10 @@
 }
 
 @media only screen and (min-width: 700px) {
+  .countries-cards {
+    grid-row-gap: 80px;
+  }
+  
   .filters {
     flex-direction: row;
     justify-content: space-between;
