@@ -1,9 +1,9 @@
 :root {
   --white: hsl(0, 0%, 100%);
-  --white-gray: hsl(0, 0%, 98%);
+  --light-gray: hsl(0, 0%, 98%);
   --dark-gray: hsl(0, 0%, 52%);
   --dark-blue: hsl(200, 15%, 8%);
-  --shadow: 0 0 6px 3px hsl(0, 0%, 93%);
+  --shadow: 0 3px 4px rgb(0 0 0 / 6%);
   --container-padding: 20px;
   --container-width: calc(100vw - var(--container-padding) * 2);
   --radius: 3px;
@@ -26,8 +26,15 @@ body {
   font-size: 16px;
   font-weight: 300;
 
-  background: var(--white-gray);
+  background: var(--light-gray);
   color: var(--dark-blue);
+}
+
+body.theme-dark {
+  --white: hsl(209, 23%, 22%);
+  --light-gray: hsl(207, 26%, 17%);
+  --dark-blue: hsl(0, 0%, 100%);
+  --dark-gray: hsl(0, 0%, 100%);
 }
 
 a {
@@ -57,11 +64,12 @@ button {
   padding: 0.5em 1.75em;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  
-  font-size: .8em;
-  
+
+  font-size: 0.8em;
+
   background: var(--white);
-  
+  color: var(--dark-blue);
+
   cursor: pointer;
 }
 

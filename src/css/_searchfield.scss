@@ -9,16 +9,19 @@
   overflow: hidden;
 
   background: var(--white);
-  color: var(--dark-gray);
 }
 
 .search-field input {
   flex-grow: 2;
+
+  color: var(--dark-gray);
+  background: transparent;
 }
 
 .search-field svg {
   height: 20px;
   width: 70px;
-
+  
+  background: transparent;
   color: var(--dark-gray);
 }

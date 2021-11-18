@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--shadow);
+
+  background: var(--white);
 }
 
 .topbar h1 {
@@ -15,14 +17,14 @@
 .topbar p {
   display: flex;
   align-items: center;
-  
+
   font-weight: 600;
 }
 
 .topbar svg {
   height: 1em;
   width: 1em;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 @media only screen and (max-width: 900px) {
