@@ -14,25 +14,8 @@
   font-size: 1.5em;
 }
 
-.topbar p {
-  display: flex;
-  align-items: center;
-
-  font-weight: 600;
-}
-
-.topbar svg {
-  height: 1em;
-  width: 1em;
-  margin-right: 0.5em;
-}
-
 @media only screen and (max-width: 900px) {
   .topbar h1 {
     font-size: 1em;
-  }
-
-  .topbar p {
-    font-size: 0.9em;
   }
 }

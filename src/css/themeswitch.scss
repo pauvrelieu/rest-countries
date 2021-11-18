@@ -1,0 +1,28 @@
+.theme-switch {
+  cursor: pointer;
+  user-select: none;
+}
+
+.theme-switch p {
+  display: flex;
+  align-items: center;
+
+  font-weight: 600;
+}
+
+.theme-switch svg {
+  height: 1em;
+  width: 1em;
+  margin-right: 0.5em;
+  fill: none;
+}
+
+body.theme-dark .theme-switch svg {
+  fill: var(--dark-blue);
+}
+
+@media only screen and (max-width: 900px) {
+  .theme-switch p {
+    font-size: 0.9em;
+  }
+}

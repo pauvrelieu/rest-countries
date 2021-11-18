@@ -1,6 +1,6 @@
 .search-field {
   height: 46px;
-  // min-width: 400px;
+  min-width: 30%;
   display: flex;
   flex-direction: row-reverse;
   border: none;
@@ -12,6 +12,7 @@
 }
 
 .search-field input {
+  padding-left: 0;
   flex-grow: 2;
 
   color: var(--dark-gray);
@@ -20,7 +21,6 @@
 
 .search-field svg {
   height: 20px;
-  width: 70px;
   
   background: transparent;
   color: var(--dark-gray);
