@@ -1,4 +1,6 @@
-export const SearchIcon = () => (
+import { memo } from 'preact/compat'
+
+export const SearchIcon = memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
     <title>Search</title>
     <path
@@ -17,4 +19,4 @@ export const SearchIcon = () => (
       d="M338.29 338.29L448 448"
     />
   </svg>
-)
+))

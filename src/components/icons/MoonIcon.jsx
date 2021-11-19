@@ -1,4 +1,6 @@
-export const MoonIcon = () => (
+import { memo } from 'preact/compat'
+
+export const MoonIcon = memo(() => (
   <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
     <title>Moon</title>
     <path
@@ -10,4 +12,4 @@ export const MoonIcon = () => (
       stroke-width="32"
     />
   </svg>
-)
+))

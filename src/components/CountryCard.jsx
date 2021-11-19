@@ -2,6 +2,7 @@ import { memo } from 'preact/compat'
 
 export const CountryCard = memo(({ country }) => {
   const population = new Intl.NumberFormat().format(country.population)
+
   return (
     <article class="country-card">
       <img src={country.flag} alt={`The ${country.name} country flags`} />

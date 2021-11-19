@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { SearchIcon } from './icons/SearchIcon'
 
-export function SearchField({ onSubmit }) {
+export const SearchField = memo(({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const search = e.target.search.value
@@ -24,4 +25,4 @@ export function SearchField({ onSubmit }) {
       </button>
     </form>
   )
-}
+})

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'preact/hooks'
+import { useCallback, useEffect, useState } from 'preact/hooks'
 import { Link } from 'react-router-dom'
 import { CountryCard } from '../components/CountryCard'
 import { Loading } from '../components/Loading'
@@ -36,17 +36,18 @@ export function Countries() {
           countries,
         })
       },
-      (error) =>
+      (error) => {
         setState({
           isLoading: false,
           error,
         })
+      }
     )
   }, [search, region])
 
-  const handleSearch = function (value) {
+  const handleSearch = useCallback(function (value) {
     setSearch(value)
-  }
+  }, [])
 
   const handleRegion = function (value) {
     value.toLowerCase()
@@ -64,14 +65,13 @@ export function Countries() {
     return <Loading />
   }
 
+  const regions = [fakeLabel, 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+
   return (
     <div class="countries">
       <div className="filters">
         <SearchField onSubmit={handleSearch} />
-        <Select
-          items={[fakeLabel, 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
-          onChange={handleRegion}
-        />
+        <Select items={regions} onChange={handleRegion} />
       </div>
 
       <div className="countries-cards">
