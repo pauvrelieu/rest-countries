@@ -51,7 +51,7 @@ export function Select({ items, onChange }) {
 
   return (
     <div class="select">
-      <p class="select__title" tabIndex="0">
+      <p class="select__title">
         <span>{label}</span>
         <ChevronUpIcon />
       </p>

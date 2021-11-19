@@ -1,8 +1,6 @@
 import { useEffect } from 'preact/hooks'
+import { getTheme, setTheme } from '../utils/functions'
 import { MoonIcon } from './icons/MoonIcon'
-
-const getTheme = () => localStorage.getItem('theme')
-const setTheme = (theme) => localStorage.setItem('theme', theme)
 
 export function ThemeSwitch() {
   useEffect(() => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'preact/hooks'
 import { Link } from 'react-router-dom'
-import slugify from 'slugify'
 import { CountryCard } from '../components/CountryCard'
 import { SearchField } from '../components/SearchField'
 import { Select } from '../components/Select'
+import { getSlugify } from '../utils/functions'
 
 const fakeLabel = 'Filter by region'
 
@@ -53,10 +53,7 @@ export function Countries() {
       <div className="countries-cards">
         {countries.map((country) => (
           <Link
-            to={`${slugify(country.name, {
-              lower: true,
-              strict: true,
-            })}?name=${country.name}`}
+            to={`${getSlugify(country.name)}?name=${country.name}`}
             key={country.name}
           >
             <CountryCard key={country.name} country={country} />

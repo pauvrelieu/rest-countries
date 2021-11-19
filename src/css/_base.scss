@@ -35,7 +35,6 @@ body.theme-dark {
   --white: hsl(209, 23%, 22%);
   --light-gray: hsl(207, 26%, 17%);
   --dark-blue: hsl(0, 0%, 100%);
-  --dark-gray: hsl(0, 0%, 100%);
 }
 
 a {
@@ -92,6 +91,13 @@ button.flat {
   width: 100%;
   padding-left: calc(50% - var(--container-width) / 2);
   padding-right: calc(50% - var(--container-width) / 2);
+}
+
+.search-field,
+.select__title {
+  height: 50px;
+  
+  line-height: 50px;
 }
 
 @media only screen and (min-width: 1440px) {

@@ -1,3 +1,9 @@
+.country {
+  background: var(--light-gray);
+
+  overflow: hidden;
+}
+
 .country__inner {
   padding: 0 0.75em;
 }
@@ -53,16 +59,19 @@
   gap: 10px;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 1000px) {
   .country__article {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 100px;
+    gap: 150px;
   }
 
   .country__article img {
-    width: 40vmax;
+    width: 500px;
+    height: 400px;
+  }
+
+  .country__article-details {
+    flex-grow: 2;
   }
 
   .country__inner nav {

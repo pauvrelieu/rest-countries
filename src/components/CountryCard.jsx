@@ -1,4 +1,6 @@
-export function CountryCard({ country }) {
+import { memo } from 'preact/compat'
+
+export const CountryCard = memo(({ country }) => {
   const population = new Intl.NumberFormat().format(country.population)
   return (
     <article class="country-card">
@@ -17,4 +19,4 @@ export function CountryCard({ country }) {
       </ul>
     </article>
   )
-}
+})

@@ -1,5 +1,6 @@
 .select {
-  width: 250px;
+  max-width: 250px;
+  width: 100%;
   position: relative;
   
   font-size: 0.85em;
@@ -16,13 +17,10 @@
 }
 
 .select__title {
-  height: 46px;
   padding: 0 1.5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  line-height: 46px;
 }
 
 .select__title svg {

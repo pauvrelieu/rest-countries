@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
 import { useNavigate } from 'react-router-dom'
-import slugify from 'slugify'
+import { getSlugify } from '../utils/functions'
 
 export function Country() {
   const [country, setCountry] = useState({})
@@ -25,7 +25,7 @@ export function Country() {
   }, [country])
 
   const handleClick = useCallback(function (countryName) {
-    location.pathname = slugify(countryName, { lower: true, strict: true })
+    location.pathname = getSlugify(countryName)
     location.search = `name=${countryName}`
   }, [])
 
