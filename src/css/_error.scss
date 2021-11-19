@@ -1,0 +1,15 @@
+.error {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+
+  text-align: center;
+  
+  color: var(--dark-blue);
+}
+
+.error h2 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}

@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'preact/hooks'
 import { Link } from 'react-router-dom'
 import { CountryCard } from '../components/CountryCard'
+import { Loading } from '../components/Loading'
 import { SearchField } from '../components/SearchField'
 import { Select } from '../components/Select'
+import { get } from '../utils/countriesApi'
 import { getSlugify } from '../utils/functions'
 
 const fakeLabel = 'Filter by region'
 
 export function Countries() {
-  const [countries, setCountries] = useState([])
+  const [state, setState] = useState({
+    countries: [],
+    isLoading: true,
+    error: null,
+  })
   const [search, setSearch] = useState('')
   const [region, setRegion] = useState('')
 
@@ -23,9 +29,19 @@ export function Countries() {
       endpoint = `region/${region}`
     }
 
-    fetch(`https://restcountries.com/v2/${endpoint}`)
-      .then((response) => response.json())
-      .then(setCountries)
+    get(endpoint).then(
+      (countries) => {
+        setState({
+          isLoading: false,
+          countries,
+        })
+      },
+      (error) =>
+        setState({
+          isLoading: false,
+          error,
+        })
+    )
   }, [search, region])
 
   const handleSearch = function (value) {
@@ -40,6 +56,14 @@ export function Countries() {
     setRegion(value)
   }
 
+  if (state.error) {
+    return <Error />
+  }
+
+  if (state.isLoading) {
+    return <Loading />
+  }
+
   return (
     <div class="countries">
       <div className="filters">
@@ -51,7 +75,7 @@ export function Countries() {
       </div>
 
       <div className="countries-cards">
-        {countries.map((country) => (
+        {state.countries.map((country) => (
           <Link
             to={`${getSlugify(country.name)}?name=${country.name}`}
             key={country.name}

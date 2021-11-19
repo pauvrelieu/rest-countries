@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
 import { useNavigate } from 'react-router-dom'
+import { get } from '../utils/countriesApi'
 import { getSlugify } from '../utils/functions'
 
 export function Country() {
@@ -10,17 +11,13 @@ export function Country() {
   useEffect(() => {
     let params = new URLSearchParams(document.location.search.substring(1))
     const name = params.get('name')
-    fetch(`https://restcountries.com/v2/name/${name}`)
-      .then((response) => response.json())
-      .then((response) => setCountry(...response))
+    get(`name/${name}`).then((response) => setCountry(...response))
   }, [])
 
   useEffect(() => {
     const codes = country?.borders?.join()
     if (codes) {
-      fetch(`https://restcountries.com/v2/alpha?codes=${codes}`)
-        .then((response) => response.json())
-        .then(setBordersCountries)
+      get(`alpha?codes=${codes}`).then(setBordersCountries)
     }
   }, [country])
 
