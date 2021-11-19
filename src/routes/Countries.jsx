@@ -70,7 +70,7 @@ export function Countries() {
   return (
     <div class="countries">
       <div className="filters">
-        <SearchField onSubmit={handleSearch} />
+        <SearchField onInput={handleSearch} />
         <Select items={regions} onChange={handleRegion} />
       </div>
 

@@ -1,28 +1,23 @@
 import { memo } from 'react'
 import { SearchIcon } from './icons/SearchIcon'
 
-export const SearchField = memo(({ onSubmit }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const search = e.target.search.value
-    if (search) {
-      onSubmit(search)
-    }
-    e.target.search.value = ''
+export const SearchField = memo(({ onInput }) => {
+  const handleInput = (e) => {
+    onInput(e.target.value)
   }
 
   return (
-    <form onSubmit={handleSubmit} class="search-field">
+    <div class="search-field">
       <label htmlFor="search"></label>
       <input
         type="text"
         id="search"
-        name="search"
         placeholder="Search for a country"
+        onInput={handleInput}
       />
       <button type="submit" class="flat">
         <SearchIcon />
       </button>
-    </form>
+    </div>
   )
 })
