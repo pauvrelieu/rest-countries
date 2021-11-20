@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { get } from '../utils/countriesApi'
 import { getSlugify } from '../utils/functions'
 
 export function Country() {
   const [country, setCountry] = useState({})
   const [bordersCountries, setBordersCountries] = useState([])
+  let [searchParams, setSearchParams] = useSearchParams()
   let navigate = useNavigate()
 
   useEffect(() => {
-    let params = new URLSearchParams(document.location.search.substring(1))
-    const name = params.get('name')
+    const name = searchParams.get('name')
     get(`name/${name}`).then((response) => setCountry(...response))
   }, [])
 
@@ -21,9 +21,9 @@ export function Country() {
     }
   }, [country])
 
-  const handleClick = useCallback(function (countryName) {
-    location.pathname = getSlugify(countryName)
-    location.search = `name=${countryName}`
+  const handleClick = useCallback(function (name) {
+    const baseUrl = `${window.location.protocol}//${window.location.host}`
+    location.assign(`${baseUrl}/${getSlugify(name)}?name=${name}`)
   }, [])
 
   const currencies = country?.currencies?.map((c) => c.name).join(', ')
