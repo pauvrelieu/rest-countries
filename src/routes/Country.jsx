@@ -21,10 +21,10 @@ export function Country() {
     }
   }, [country])
 
-  const handleClick = useCallback(function (name) {
+  const handleClick = function (name) {
     const baseUrl = `${window.location.protocol}//${window.location.host}`
     location.assign(`${baseUrl}/${getSlugify(name)}?name=${name}`)
-  }, [])
+  }
 
   const currencies = country?.currencies?.map((c) => c.name).join(', ')
   const languages = country?.languages?.map((l) => l.name).join(', ')
