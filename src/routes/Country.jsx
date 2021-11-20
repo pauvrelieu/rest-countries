@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { get } from '../utils/countriesApi'
 import { getSlugify } from '../utils/functions'
@@ -22,7 +22,7 @@ export function Country() {
   }, [country])
 
   const handleClick = function (name) {
-    const baseUrl = `${window.location.protocol}//${window.location.host}`
+    const baseUrl = `${location.protocol}//${location.host}`
     location.assign(`${baseUrl}/${getSlugify(name)}?name=${name}`)
   }
 
